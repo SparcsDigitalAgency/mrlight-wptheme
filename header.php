@@ -19,125 +19,120 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 
-<?php wp_head(); ?>
+<?php  wp_head(); ?>
 
+<!-- Stylesheets
+         ============================================= -->
+      
+      <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.css" type="text/css" />
+      <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style-new.css" type="text/css" />
+      <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/swiper.css" type="text/css" />
+      <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/dark.css" type="text/css" />
+      <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/font-icons.css" type="text/css" />
+      <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/animate.css" type="text/css" />
+      <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css" type="text/css" />
 
-    <!-- Bootstrap core CSS -->
-    <link href="<?php bloginfo('template_directory'); ?>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
-    <link href="<?php bloginfo('template_directory'); ?>/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-
-    <!-- Plugin CSS -->
-    <link href="<?php bloginfo('template_directory'); ?>/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="<?php bloginfo('template_directory'); ?>/css/creative.min.css" rel="stylesheet">
-
+      <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+      
 
 </head>
 
-<body <?php body_class(); ?>  id="page-top">
+<body <?php body_class(); ?> >
+<div class="stretched">
 
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentyseventeen' ); ?></a>
+	 <!-- Document Wrapper
+         ============================================= -->
+      <div id="wrapper" class="stretched clearfix">
+         <!-- Header
+            ============================================= -->
+         <header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
+            <div id="header-wrap">
+               <div class="container clearfix">
+                  <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+                  <!-- Logo
+                     ============================================= -->
+                  <div id="logo">
+                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="standard-logo" data-dark-logo="<?php echo get_template_directory_uri(); ?>/images/logo-dark.png"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Mr light Logo"></a>
+                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="retina-logo" data-dark-logo="<?php echo get_template_directory_uri(); ?>/images/logo-dark@2x.png"><img src="<?php echo get_template_directory_uri(); ?>/images/logo@2x.png" alt="Canvas Logo"></a>
+                  </div>
+                  <!-- #logo end -->
+                  <!-- Primary Navigation
+                     ============================================= -->
 
+             	<?php if ( has_nav_menu( 'top' ) ) : ?>
+				
+					
+						<?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
+					
+				
+				<?php endif; ?>
+                  <!-- #primary-menu end -->
+               </div>
+            </div>
+         </header>
 
-<!-- Header Carousel ===================== -->  
-    
-<?php if (  is_home() || is_front_page()  ) { ?>
-
-<header id="slider">
-
-
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel"> 
-  		<ol class="carousel-indicators">
-    		<?php
-			$number = 0; 
- 			$args = array(
-							'post_type' => 'slider',
-							'order' 	=> 'ASC',
-							'tax_query' => array(
-								array(
-									'taxonomy' 	=> 'slider-category',
-									'field'    	=> 'slug',
-									'terms'    	=> 'header-slider'
-									
-								)
-							)
-						);
-			$loop = new WP_Query( $args );
-			while ( $loop->have_posts() ) : $loop->the_post();?>
-    		<li data-target="#myCarousel" data-slide-to="<?php echo $number++; ?>" class=""></li>
-    		<?php endwhile; ?>
-  		</ol>
-
-  		<div class="carousel-inner">
-		  	<?php      	  
-			while ( $loop->have_posts() ) : $loop->the_post();
-			echo '<div class="item">';
-
-			//$sliderimage = get_post_meta($post->ID, "slider-image", single);
-      		//$sliderurl = get_post_meta($post->ID, "slider-image-url", single);
-
-			?>
-			<a href="<?php the_field('slider_image_url');?>"><img src="<?php the_field('slider_image'); ?>"></a>
+<?php if ( is_front_page() ) : ?>
+				
 			
-			</div>
-			<?php
-			endwhile;
-			wp_reset_postdata();
-		    ?> 
-		</div>
+         <!-- #header end -->
+         <section id="slider" class="slider-element slider-parallax swiper_wrapper full-screen clearfix">
+            <div class="slider-parallax-inner">
+               <div class="swiper-container swiper-parent">
+                  <div class="swiper-wrapper">
+                     <div class="swiper-slide dark" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/slider/swiper/1.jpg');">
+                        <div class="container clearfix">
+                           <div class="slider-caption slider-caption-center">
+                              <h2 data-caption-animate="fadeInUp">Welcome to Mr. Light</h2>
+                              <p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200">FOR ALL IT TAKES TO MAKE A GOOD HOME, A GREAT ONE!</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="swiper-slide" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/slider/swiper/3.jpg'); background-position: center top;">
+                        <div class="container clearfix">
+                           <div class="slider-caption">
+                              <h2 data-caption-animate="fadeInUp">Great Performance</h2>
+                              <p class="d-none d-sm-block" data-caption-animate="fadeInUp" data-caption-delay="200">You'll be surprised to see the Final Results of your Creation &amp; would crave for more.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
+                  <div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
+               </div>
+               <a href="#" data-scrollto="#content" data-offset="100" class="dark one-page-arrow"><i class="icon-angle-down infinite animated fadeInDown"></i></a>
+            </div>
+         </section>
 
-		<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-		<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 
-	       
-</header>
-    
- <script>
-jQuery(document).ready(function($){
-  $("#myCarousel .carousel-indicators li:first").addClass("active");
-  $("#myCarousel .carousel-inner .item:first").addClass("active");
-  //$("#myCarousel .carousel-inner img").addClass("thumbnail");
-});
-</script>
-<?php } ?>     
-    
-<!-- end Header Carousel =============== -->  
+         <?php else : ?>
 
 
+         	<section id="page-title" class="page-title-parallax newheader" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/page-title-bg.jpg'); background-position: bottom center; background-size: cover;">
+            <div class="container clearfix heading-block1">
+               
 
-	<header id="masthead" class="site-header" role="banner">
+               <?php if ( have_posts() ) : ?>
+    <header class="page-header">
+      <?php
+        the_archive_title( '<h1 ><z style="color:#de1a1a;">', '</z></h1>' );
+        //the_archive_description( '<h5 class="taxonomy-description">', '</h5>' );
+      ?>
+    </header><!-- .page-header -->
+        <?php else : ?>
+        <h1><z style="color:#de1a1a;"><?php the_title(); ?></z> </h1>
+          <?php endif; ?>
+               <!-- <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Appointment</li>
+               </ol> -->
+            </div>
+         </section>
+			
+	<?php endif; ?>
 
-		<?php //get_template_part( 'template-parts/header/header', 'image' ); ?>
 
-		<?php if ( has_nav_menu( 'top' ) ) : ?>
-			<div class="navigation-top">
-				<div class="wrap">
-					<?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
-				</div><!-- .wrap -->
-			</div><!-- .navigation-top -->
-		<?php endif; ?>
-
-	</header><!-- #masthead -->
-
-	<?php
-
-	/*
-	 * If a regular post or page, and not the front page, show the featured image.
-	 * Using get_queried_object_id() here since the $post global may not be set before a call to the_post().
-	 */
-	if ( ( is_single() || ( is_page() && ! twentyseventeen_is_frontpage() ) ) && has_post_thumbnail( get_queried_object_id() ) && !$products) :
-		echo '<div class="single-featured-image-header">';
-		echo get_the_post_thumbnail( get_queried_object_id(), 'twentyseventeen-featured-image' );
-		echo '</div><!-- .single-featured-image-header -->';
-	endif;
-	?>
-
-	<div class="site-content-contain">
+	<section class="site-content-contain">
 		<div id="content" class="site-content">
+
+	

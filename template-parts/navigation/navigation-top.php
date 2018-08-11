@@ -9,21 +9,31 @@
  */
 
 ?>
-<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'twentyseventeen' ); ?>">
-	<button class="menu-toggle" aria-controls="top-menu" aria-expanded="false">
-		<?php
-		echo twentyseventeen_get_svg( array( 'icon' => 'bars' ) );
-		echo twentyseventeen_get_svg( array( 'icon' => 'close' ) );
-		_e( 'Menu', 'twentyseventeen' );
-		?>
-	</button>
 
-	<?php wp_nav_menu( array(
-		'theme_location' => 'top',
-		'menu_id'        => 'top-menu',
-	) ); ?>
+<!--<nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'twentyseventeen' ); ?>">-->
 
-	<?php if ( ( twentyseventeen_is_frontpage() || ( is_home() && is_front_page() ) ) && has_custom_header() ) : ?>
-		<a href="#content" class="menu-scroll-down"><?php echo twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ); ?><span class="screen-reader-text"><?php _e( 'Scroll down to content', 'twentyseventeen' ); ?></span></a>
-	<?php endif; ?>
+<nav id="primary-menu" class="dark " role="navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'twentyseventeen' ); ?>">
+	
+		
+	<?php
+	wp_nav_menu(
+		array(
+			'theme_location' => 'top',
+			'menu_id'        => 'top-menu',
+		)
+	);
+	?>
+
+
+
+<!-- Top Search ============================================= -->
+
+                     <div id="top-search">
+                        <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+                        <form action="" method="get">
+                           <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+                        </form>
+                     </div>
+                     <!-- #top-search end -->
+
 </nav><!-- #site-navigation -->

@@ -1049,5 +1049,17 @@ $fields = array(
 $slider_img_box = new custom_add_meta_box( 'slider_img_box', 'Slider Image detials', $fields, 'slider', true );
 
 
-
+function torque_breadcrumbs() {
+	/* Breadcrumbs code will go here */
+	$show_on_homepage = 0;
+	$show_current = 1;
+	$delimiter = '&raquo;';
+	$home_url = 'Home';
+	$before_wrap = '<span clas="current">';
+	$after_wrap = '</span>';
+	 
+	/* Don't change values below */
+	global $post;
+	$home_url = get_bloginfo( 'url' );
+}
 
