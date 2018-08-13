@@ -53,6 +53,7 @@
 ?>
 
 </div>
+</div>
 </section>
       <!-- #wrapper end -->
 
@@ -206,7 +207,7 @@
          </footer>
          <!-- #footer end -->
 
-
+</div>
 
 
 

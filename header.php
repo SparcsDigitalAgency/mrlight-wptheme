@@ -43,7 +43,7 @@
 
 	 <!-- Document Wrapper
          ============================================= -->
-      <div id="wrapper" class="stretched clearfix">
+      <div id="wrapper" class="clearfix">
          <!-- Header
             ============================================= -->
          <header id="header" class="transparent-header full-header" data-sticky-class="not-dark">
@@ -113,19 +113,13 @@
                
 
                <?php if ( have_posts() ) : ?>
-    <header class="page-header">
-      <?php
-        the_archive_title( '<h1 ><z style="color:#de1a1a;">', '</z></h1>' );
-        //the_archive_description( '<h5 class="taxonomy-description">', '</h5>' );
-      ?>
-    </header><!-- .page-header -->
-        <?php else : ?>
-        <h1><z style="color:#de1a1a;"><?php the_title(); ?></z> </h1>
-          <?php endif; ?>
-               <!-- <ol class="breadcrumb">
+                <header class="page-header">
+                  <h1><z style="color:#de1a1a;"><?php wp_title(''); ?></z> </h1>
+                </header><!-- .page-header --><?php endif; ?>
+               <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Appointment</li>
-               </ol> -->
+               </ol>
             </div>
          </section>
 			

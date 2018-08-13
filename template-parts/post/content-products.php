@@ -24,13 +24,15 @@
 		<?php
 		if ( is_single() ) {
 
+			$featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full');
+
 		?>	
 
 
 
 
-<div class="col-md-12" style="margin-top: 50px;"><div class="row">		
-<div class="col-md-6"><?php the_post_thumbnail('full'); ?></div>
+<div class="col-md-8" style="margin-top: 50px;"><div class="row">		
+<div class="col-md-4"><img src="<?php echo $featured_img_url; ?>"></div>
 
 		<div class="col-md-4">
 		<h1><span style="color:#de1a1a;"><?php echo  the_title(); ?></span></h1>
